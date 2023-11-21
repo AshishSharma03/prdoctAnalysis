@@ -21,8 +21,7 @@ const PostForm = () => {
       if (response.ok) {
         console.log('Post created successfully');
         // Optionally, you can reset the form fields after successful submission
-        setTitle('');
-        setContent('');
+        alert("submitted")
       } else {
         console.error('Error creating post:', response.statusText);
       }
@@ -40,39 +39,44 @@ const PostForm = () => {
 
       if (response.ok) {
         console.log('All data deleted successfully');
+        
+        setContent('')
+        setData('')
       } else {
         console.error('Error deleting all data:', response.statusText);
       }
     } catch (error) {
       console.error('Error:', error.message);
     } finally {
-      // setGenerate(false);
+      
     }
   };
 
 
   return (
-    <form onSubmit={handleSubmit} style={{display:"flex"}}>
-      <div style={{display:"flex",flexDirection:"row"}} >
+    <form onSubmit={handleSubmit} style={{display:"flex",flexDirection:"column",justifyContent:"center",gap:"10px",alignItems:"center",minHeight:"100vh"}}>
+      <div style={{display:"flex",flexDirection:"column"}} >
         <label htmlFor="title">Title:</label>
         <input
+        style={{width:"500px",fontSize:"20px",padding:"10px"}}
           type="text"
           id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
-      <div>
+      <div style={{display:"flex",flexDirection:"column"}}>
         <label htmlFor="content">Content:</label>
         <textarea
+        style={{width:"500px",fontSize:"15px",padding:"10px"}}
           id="content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
       </div>
-      <div >
-        <button type="submit">Submit</button>
-        <button onClick={clear} >
+      <div style={{display:"flex",gap:5}}>
+        <button type="submit" style={{padding:"10px 20px",}} >Submit</button>
+        <button  style={{padding:"10px 20px",}} onClick={clear} >
         clear
       </button>
       </div>

@@ -13,22 +13,33 @@ function AnalysysTextView() {
       if (response.ok) {
         const data = await response.json();
         setResoposnseData(true)
+        setGenerate(false)
+        console.log(data)
         setPosts(data.data[0]);
       } else {
         console.error('Error fetching data:', response.statusText);
         setResoposnseData(false);
+        setGenerate(false)
       }
     } catch (error) {
       console.error('Error fetching data:', error.message);
       setResoposnseData(false);
+      setGenerate(false)
     }
   };
 
   useEffect(() => { 
+
+    if(posts === undefined ){
+      setResoposnseData(false)
+      setTimeout(()=>{
+        setGenerate(false)
+      },12000)
+    }
     fetchData();
-    const intervalId = setInterval(fetchData, 1000);
-    return () => clearInterval(intervalId);
-  }, []); 
+
+  },); 
+
 
   return (
     <div className='AnalysysTextView'>

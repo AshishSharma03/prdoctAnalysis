@@ -19,9 +19,8 @@ const AnalysysView = () => {
       }
     } catch (error) {
       console.error('Error:', error.message);
-    } finally {
       setGenerate(false);
-    }
+    } 
   };
   const clear = async () => {
     try {
