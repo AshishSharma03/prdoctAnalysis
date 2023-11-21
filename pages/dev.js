@@ -1,10 +1,11 @@
 // components/PostForm.js
 import { useState } from 'react';
+import { useMyContext } from '../context/GenerateProvider';
 
 const PostForm = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-
+  const { setData } = useMyContext();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,6 +31,26 @@ const PostForm = () => {
     }
   };
 
+  const clear = async () => {
+    try {
+      setData('')
+      const response = await fetch('/api/deleteall', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+        console.log('All data deleted successfully');
+      } else {
+        console.error('Error deleting all data:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error:', error.message);
+    } finally {
+      // setGenerate(false);
+    }
+  };
+
+
   return (
     <form onSubmit={handleSubmit} style={{display:"flex"}}>
       <div style={{display:"flex",flexDirection:"row"}} >
@@ -49,8 +70,11 @@ const PostForm = () => {
           onChange={(e) => setContent(e.target.value)}
         />
       </div>
-      <div>
+      <div >
         <button type="submit">Submit</button>
+        <button onClick={clear} >
+        clear
+      </button>
       </div>
     </form>
   );
