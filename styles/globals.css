@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
+
+* {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: 'Source Code Pro', monospace;
+}
+
+
+.mainBody{
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    
+}
+
+.ImageView{
+  background: rgb(225, 225, 225);
+  min-height: 100vh;
+  width: 50%;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Visionbox{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.visionButton{
+  padding: 10px;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: rgb(91, 91, 91)
+}
+.visionButton:hover{
+  background-color: #cdcdcd;
+  color: white;
+}
+
+.visionButtonIvon{
+  font-size: 60px;
+}
+
+.AnalysysView{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.AnalysysBox{
+  padding: 20px;
+  border-bottom:1px solid rgb(191, 191, 191) ;
+}
+
+.GenerateButton{
+  padding: 10px;
+  border-radius:10px ;
+  border: 1px solid gray;
+}
+
+.GenerateButton:hover{
+  background: rgb(190, 190, 190);
+  color: white;
+}
+.GenerateButton:active{
+  background: rgb(147, 140, 140);
+  color: white;
+}
+
+.AnalysysTextView{
+  height: 100%;
+  padding: 20px;
+}
+.textView{
+  margin-top: 10px;
+  padding: 10px;
+  height: fit-content;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 5px;
+  color: #323232;
+}
+
+.imageUplaoderScreen{
+  display: flex;
+  flex-direction: column;
+}
+.imageUplaoderScreenButton{
+  
+}
+
+.textLaodedView {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 5px;
+  gap: 10px;
+  color: #323232;
+}
+
+.loadingShine {
+  width: 100%;
+  height: 20px; /* Adjust the height as needed */
+  background: linear-gradient(90deg, #eee, #ddd, #eee);
+  background-size: 200% 100%;
+  animation: shine 1.5s linear infinite;
+  border-radius: 5px; /* Match the border-radius of .textLaodedView */
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
