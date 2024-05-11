@@ -13,7 +13,7 @@ function AnalysysTextView() {
       if (response.ok) {
         const data = await response.json();
         setResoposnseData(true)
-        setGenerate(false)
+        // setGenerate(false)
         console.log(data)
         setPosts(data.data[0]);
       } else {
